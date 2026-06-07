@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'heydings';
+  src: url('/fonts/heydings_icons-webfont.eot');
+  src: url('/fonts/heydings_icons-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/heydings_icons-webfont.woff') format('woff'),
+       url('/fonts/heydings_icons-webfont.ttf') format('truetype'),
+       url('/fonts/heydings_icons-webfont.svg#heydings') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --color-primary: #f6f3ec;
+  --color-primary-hover: #d3d1cc;
+  --color-secondary: #f3ecf6;
+  --color-background: #313130;
+  --color-text: #fff;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: var(--color-primary);
+  transition: all 0.4s ease-in-out;
+  transition-property: all;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+  transition: all 0.4s ease-in-out;
+  text-decoration: underline;
+  transition-property: all;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  font-size: 1.1em;
+}
