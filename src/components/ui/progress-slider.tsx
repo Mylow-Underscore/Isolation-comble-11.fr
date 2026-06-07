@@ -77,13 +77,13 @@ export const ProgressSlider: FC<ProgressSliderProps> = ({
 
   useEffect(() => {
     const getChildren = React.Children.toArray(children).find(
-      (child) => (child as React.ReactElement).type === SliderContent
-    ) as React.ReactElement | undefined;
+      (child) => React.isValidElement(child) && child.type === SliderContent
+    ) as React.ReactElement<{ children?: React.ReactNode }> | undefined;
 
-    if (getChildren) {
+    if (getChildren && React.isValidElement(getChildren)) {
       const values = React.Children.toArray(getChildren.props.children).map(
-        (child) => (child as React.ReactElement).props.value as string
-      );
+        (child) => (child as React.ReactElement<{ value: string }>).props.value
+      ) as string[];
       setSliderValues(values);
     }
   }, [children]);
@@ -193,7 +193,6 @@ export const SliderBtn: FC<SliderBtnProps> = ({
       <div
         className='absolute inset-0 overflow-hidden -z-10 max-h-full max-w-full'
         role='progressbar'
-        aria-valuenow={active === value ? progress : 0}
       >
         <span
           className={cn('absolute left-0', progressBarClass)}
